@@ -2,11 +2,11 @@
 
 Pair of employees who have worked together on common projects for the longest time
 
-   - To write an application that finds the couple of employees who have worked together on common projects for the longest time.
+   - application that finds the couple of employees who have worked together on common projects for the longest time.
    - DateTo can accept value „NULL“ (this is equal to „today“).
-   - The data can be passed to the program from a text file
-   - The program have to be started without the need to do any code changes, after “checkout” on the code and import in IDE, 
-   the program have to run and show the result in    to the console
+   - data is passing to the program from a .csv file
+   - the program have to be started without the need to do any code changes, after “checkout” on the code and import in IDE, 
+   the program have to run and show the result into the console
 
 It's given a text file in format EmpID, ProjectID, DateFrom, DateTo Example data:
 
