@@ -12,9 +12,10 @@ import java.util.List;
 import static Pair_Of_Employees_Working_Longest_Together.constants.ApplicationConstants.FILE_PATH;
 import static Pair_Of_Employees_Working_Longest_Together.constants.ApplicationConstants.NULL;
 
-public class ImportDataServiceImpl {
+public class ImportDataServiceImpl implements ImportDataService{
 
-    public static List<Project> importData() throws IOException {
+    @Override
+    public List<Project> importData() throws IOException {
         String data;
         BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
 
