@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static Pair_Of_Employees_Working_Longest_Together.constants.ApplicationConstants.BEST_TEAM_PATTERN;
 
-public class FindService{
+public class FindService {
 
     public static List<String> findLongestWorkingPair(List<Project> projects) {
         Map<String, Integer> overlapDurations = new HashMap<>();
@@ -56,5 +56,5 @@ public class FindService{
         }
         return commonProjects;
     }
+}
 
- }
