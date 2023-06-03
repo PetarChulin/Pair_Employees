@@ -46,7 +46,7 @@ public class FindServiceImpl implements FindService {
         calculateOverlapDurations(separateProjects, overlapDurations, projectDurations);
 
         int maxDuration = calculateMaxDuration(overlapDurations);
-
+        int count = 0;
         for (Map.Entry<String, Integer> entry : projectDurations.entrySet()) {
             if (overlapDurations.get(entry.getKey().substring(0, entry.getKey().lastIndexOf(","))) == maxDuration) {
                 String[] keys = entry.getKey().split(",");
@@ -54,7 +54,8 @@ public class FindServiceImpl implements FindService {
                 int empId2 = Integer.parseInt(keys[1].trim());
                 int projectId = Integer.parseInt(keys[2].trim());
                 int overlapDuration = entry.getValue();
-                commonProjectsList.add(String.format(BEST_TEAM_PROJECTS_LIST, empId1, empId2, projectId, overlapDuration));
+                count++;
+                commonProjectsList.add(String.format(BEST_TEAM_PROJECTS_LIST, count, empId1, empId2, projectId, overlapDuration));
             }
         }
         return commonProjectsList;
