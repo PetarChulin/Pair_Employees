@@ -18,9 +18,9 @@ public class EmployeeProjectAnalyzer {
 
         FindServiceImpl findService = new FindServiceImpl();
         List<String> commonProjects = findService.findLongestWorkingPair(projects);
+        List<String> getCommonProjects = findService.getCommonProjects(projects);
 
-
-        Engine engine = new Engine(commonProjects);
+        Engine engine = new Engine(commonProjects, getCommonProjects);
         engine.run();
 
     }

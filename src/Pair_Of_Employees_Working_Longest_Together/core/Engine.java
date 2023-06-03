@@ -7,9 +7,11 @@ import static Pair_Of_Employees_Working_Longest_Together.constants.ApplicationCo
 public class Engine implements Runnable {
 
     private final List<String> commonProjects;
+    private final List<String> getCommonProjects;
 
-    public Engine(List<String> commonProjects) {
+    public Engine(List<String> commonProjects, List<String> getCommonProjects) {
         this.commonProjects = commonProjects;
+        this.getCommonProjects = getCommonProjects;
     }
 
     @Override
@@ -22,6 +24,12 @@ public class Engine implements Runnable {
             System.out.println(DELIMITER);
             for (String commonProject : commonProjects) {
                 System.out.println(commonProject);
+            }
+            System.out.println();
+            System.out.println(LIST_INFO_MSG);
+            System.out.println(DELIMITER);
+            for (String getCommonProject : getCommonProjects) {
+                System.out.println(getCommonProject);
             }
         }
     }

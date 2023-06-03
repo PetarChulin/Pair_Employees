@@ -7,4 +7,5 @@ import java.util.List;
 public interface FindService {
 
     List<String> findLongestWorkingPair(List<Project> projects);
+    List<String> getCommonProjects(List<Project> separateProjects);
 }
