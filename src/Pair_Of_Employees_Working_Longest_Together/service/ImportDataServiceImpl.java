@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,16 +29,31 @@ public class  ImportDataServiceImpl implements ImportDataService{
             String[] splitData = data.split(", ");
             count++;
             if(splitData.length != 4) {
-                System.out.printf((ERROR_MSG) + "%n", count);
+                System.out.printf(INVALID_LINE_FORMAT_MSG + "%n", count);
                 continue;
             }
 
             int empId = Integer.parseInt(splitData[0].trim());
             int projectId = Integer.parseInt(splitData[1].trim());
-            LocalDate dateFrom = LocalDate.parse(splitData[2].trim());
-            LocalDate dateTo = splitData[3].trim().equalsIgnoreCase(NULL)
-                    ? LocalDate.now()
-                    : LocalDate.parse(splitData[3].trim());
+            LocalDate dateFrom;
+            try {
+                dateFrom = LocalDate.parse(splitData[2].trim());
+            } catch (DateTimeParseException e) {
+                System.out.printf(INVALID_DATE_FROM_FORMAT_MSG + "%n", count);
+                continue;
+            }
+
+            LocalDate dateTo;
+            if (splitData[3].trim().equalsIgnoreCase("NULL")) {
+                dateTo = LocalDate.now();
+            } else {
+                try {
+                    dateTo = LocalDate.parse(splitData[3].trim());
+                } catch (DateTimeParseException e) {
+                    System.out.printf(INVALID_DATE_TO_FORMAT_MSG + "%n", count);
+                    continue;
+                }
+            }
 
             projects.add(new Project(empId, projectId, dateFrom, dateTo));
         }
