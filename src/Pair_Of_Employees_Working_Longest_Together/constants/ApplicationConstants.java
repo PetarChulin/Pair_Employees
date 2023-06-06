@@ -14,6 +14,7 @@ public final class ApplicationConstants {
     public static final String DELIMITER = "==============================================================================";
     public static final String NULL = "NULL";
     public static final String BEST_TEAM_PROJECTS_LIST = "%d. EmployeeID: %s and EmployeeID: %s worked together on ProjectID %s for %d days";
+    public static final String ERROR_MSG = "Error: Invalid format of data on line number %d.";
 
 
 }
